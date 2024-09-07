@@ -1,16 +1,10 @@
 import Image from 'next/image'
-import { getAllMealSlugs, getMeal } from '@/lib/meals';
+import { getMeal } from '@/lib/meals';
 import classes from './page.module.css'
 import { notFound } from 'next/navigation';
 
-export async function getStaticPaths() {
-    const meals = getAllMealSlugs(); // Assuming this function fetches all possible slugs
-    return {
-        paths: meals.map(meal => ({
-            params: { mealSlug: meal.slug },
-        })),
-        fallback: false // or true or 'blocking', depending on your requirements
-    };
+export function generateStaticParams() {
+    return [{ slug: ['a', '1'] }, { slug: ['b', '2'] }, { slug: ['c', '3'] }]
 }
 
 
