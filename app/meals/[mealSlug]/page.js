@@ -3,11 +3,6 @@ import { getMeal } from '@/lib/meals';
 import classes from './page.module.css'
 import { notFound } from 'next/navigation';
 
-export function generateStaticParams() {
-    return [{ slug: ['a', '1'] }, { slug: ['b', '2'] }, { slug: ['c', '3'] }]
-}
-
-
 const MealDetails = ({ params }) => {
     const meal = getMeal(params.mealSlug);
 
